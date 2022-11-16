@@ -1,6 +1,7 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';import { Alert, Avatar, Box, Button, Checkbox, Container, createTheme, CssBaseline, FormControlLabel, Grid, Snackbar, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 
 const theme = createTheme();
@@ -18,16 +19,28 @@ export const Register = () => {
 
     setOpen(false);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      name: data.get('name'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  
+  const [input,setInput] = useState({
+    username:"",
+    email:"",
+    password:""
+  })
+  const handleChange = (e)=>{
+      setInput(prev=>({...prev,[e.target.name]: e.target.value}))
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    try{
+      const res = await axios.post("http://localhost:8800/register",input)
+      console.log(res)
+
+    } catch(err){
+     console.log(err)
+    }
     setOpen(true);
   };
+
 
   return (
     <div>
@@ -54,11 +67,12 @@ export const Register = () => {
               margin="normal"
               required
               fullWidth
-              id="name"
-              label="Enter Your Name"
-              name="name"
-              autoComplete="name"
+              id="username"
+              label="  User Name"
+              name="username"
+              autoComplete="username"
               autoFocus
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -69,6 +83,8 @@ export const Register = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleChange}
+
             />
             <TextField
               margin="normal"
@@ -79,6 +95,8 @@ export const Register = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChange}
+
             />
             
             <Button

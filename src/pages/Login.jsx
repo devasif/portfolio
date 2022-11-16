@@ -2,9 +2,18 @@ import { LockOutlined } from '@mui/icons-material';
 import { Avatar, Box, Button, Checkbox, Container, createTheme, CssBaseline, FormControlLabel, Grid, TextField, Typography } from '@mui/material';
 import React from 'react'
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-const theme = createTheme();
 
+const LoginArea = styled.div    `
+padding: 10px 0;
+background-color:${({theme})=>theme.bgLighter};
+color:${({theme})=>theme.text};
+`
+const Heading = styled.h1 `
+background-color:${({theme})=>theme.bgLighter};
+color:${({theme})=>theme.text};
+`
 
 export const Login = () => {
 
@@ -18,7 +27,7 @@ export const Login = () => {
   };
 
   return (
-    <div>
+    <>
 
 
 <Container component="main" maxWidth="xs">
@@ -83,9 +92,9 @@ export const Login = () => {
        
       </Container> 
 
+     
 
 
-
-    </div>
+    </>
   )
 }
