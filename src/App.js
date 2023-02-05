@@ -4,6 +4,7 @@ import {
   Route,
   Link,
   Outlet,
+  json,
 } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -15,7 +16,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import "./style.scss";
 import { ThemeProvider } from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { darkTheme, lightTheme } from "./utils/Theme";
 import { NotfoundPage } from "./pages/NotfoundPage";
 import { Single } from "./pages/SinglePost";
@@ -70,15 +71,25 @@ import { Write } from "./pages/Write";
 // ]);
 
 function App() {
-  const [darkMode,setDarkMode] = useState(false);
+  const getTheme = ()=>{
+    return JSON.parse(localStorage.getItem("darkMode") )|| false;
 
+  }
+  const [darkMode,setDarkMode] = useState(getTheme);
+ 
+  useEffect(()=>{
+    localStorage.setItem("darkMode",JSON.stringify(darkMode))
+
+  },[darkMode])
+  
+  
 
   return (
     <BrowserRouter>
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
     <Header darkMode={darkMode} setDarkMode={setDarkMode}></Header>
     <Routes>
-      <Route path="/" index element={<Home />}>
+      <Route path="/" index element={<Home   darkMode={darkMode} setDarkMode={setDarkMode}/>}>
         </Route>
       <Route path="/blog" element={<Blog/>}> </Route>
       <Route path="/contact" element={<Contact/>}> </Route>

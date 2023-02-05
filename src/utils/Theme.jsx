@@ -16,12 +16,17 @@ export const darkTheme = {
     title:"#FFFFFF",
     bgc:"#001c3c",
     desk: "#fff",
+    bgLi :"#212425",
+    bgText:"#fff",
+    mBtnText: "#fff",
+    mBtn: "#4d4d4d",
+    mMenu:"#1d1d1d"
 }
 
 export const lightTheme = {
     bgc:"#ffffff",
     bg:"#f9f9f9",
-    bgLighter: "white",
+    bgLighter: "#f3f6f6",
     bgLighters: "white",
     bgButton:"#868E96",
     my:"#000000",
@@ -36,4 +41,12 @@ export const lightTheme = {
     title:"#ff005e",
     heading:"#001c3c",
     desk:"#202020",
+    bgLi:"#fff",
+    bgText:"#44566c",
+    mBtnText: "#000",
+    mBtn:"#fff",
+    mMenu:"#fff",
+
+
+
 }
