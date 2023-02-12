@@ -21,6 +21,7 @@ import { darkTheme, lightTheme } from "./utils/Theme";
 import { NotfoundPage } from "./pages/NotfoundPage";
 import { Single } from "./pages/SinglePost";
 import { Write } from "./pages/Write";
+import { About } from "./pages/About";
 
 
 
@@ -96,6 +97,7 @@ function App() {
       <Route path="/login" element={<Login/>}> </Route>
       <Route path="/Register" element={<Register/>}> </Route>
       <Route path="/write" element={<Write/>}> </Route>
+      <Route path="/about" element={<About  darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
       <Route path="/post/:id" element={<SinglePost/>}> </Route>
       <Route path="*" element={<NotfoundPage/>}> </Route>
     </Routes>
