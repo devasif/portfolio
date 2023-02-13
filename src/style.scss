@@ -716,10 +716,13 @@ nav{
 }
 } 
 
-@media screen and (min-width: 1024) and (max-width: 1350px) {
+@media screen and (min-width: 1023px) and (max-width: 1362px)  {
   .contact-info {
     display: flex;
     justify-content: space-between !important;
     align-items: center;
+  }
+  .about_bg {
+    padding: 149px 131px;
   }
 }
