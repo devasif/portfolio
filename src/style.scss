@@ -655,6 +655,46 @@ nav{
 }
 }
 
+// resume 
+.resume {
+  display: flex;
+  justify-content: left;
+  align-content: center;
+}
+.resume span {
+  font-size: 27px;
+  padding-right: 10px;
+  color: #f91a6e;
+  line-height: 27px;
+}
+.resume-tt h4{
+  font-size: 16px;
+  color: #919090;
+  margin-bottom: 10px;
+}
+
+.knowledge {
+	display: flex;
+	gap: 11px;
+	flex-wrap: wrap;
+}
+.resume-button {
+	cursor: default !important;
+	background: #443f42;
+	border: 0;
+	padding: 6px 10px;
+	border-radius: 8px;
+	font-size: 15px;
+	color: #fff;
+}
+.progress-bar span {
+	position: absolute;
+	background: #192e5a;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	line-height: 32px;
+}
 
 
 /* Large devices (laptops/desktops, 992px and up) */

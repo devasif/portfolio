@@ -22,6 +22,7 @@ import { NotfoundPage } from "./pages/NotfoundPage";
 import { Single } from "./pages/SinglePost";
 import { Write } from "./pages/Write";
 import { About } from "./pages/About";
+import { Resume } from "./pages/Resume";
 
 
 
@@ -98,6 +99,7 @@ function App() {
       <Route path="/Register" element={<Register/>}> </Route>
       <Route path="/write" element={<Write/>}> </Route>
       <Route path="/about" element={<About  darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
+      <Route path="/resume" element={<Resume  darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
       <Route path="/post/:id" element={<SinglePost/>}> </Route>
       <Route path="*" element={<NotfoundPage/>}> </Route>
     </Routes>

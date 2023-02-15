@@ -122,7 +122,7 @@ export const Header = ({darkMode,setDarkMode}) => {
           <ul>
             <Links><NavLink exact="true" activeclassname="active"  className="link" to="/"> <i className="fa-solid fa-house"></i> Home</NavLink></Links>
             <Links><NavLink activeclassname="active"  className="link" to="/about"> <i className="fa-sharp fa-solid fa-user"></i> About </NavLink></Links>
-            <Links><NavLink activeclassname="active"  className="link"  to="/portfolio"> <i className="fa-solid fa-file-lines"></i> Resume</NavLink></Links>
+            <Links><NavLink activeclassname="active"  className="link"  to="/resume"> <i className="fa-solid fa-file-lines"></i> Resume</NavLink></Links>
             <Links><NavLink activeclassname="active"  className="link" to="/works"> <i className="fa-solid fa-briefcase"></i> Works</NavLink></Links>
             <Links><NavLink activeclassname="active"  className="link" to="/blog"> <i className="fa-brands fa-blogger"></i> Blog</NavLink></Links>
             <Links><NavLink activeclassname="active"  className="link"  to="/contact"> <i className="fa-solid fa-address-book"></i> Contact</NavLink></Links>
@@ -165,7 +165,7 @@ export const Header = ({darkMode,setDarkMode}) => {
                 <ul>
                 <LinksM><NavLink exact="true" activeclassname="activeme"  className="links" to="/"> <i className="fa-solid fa-house"></i> Home</NavLink></LinksM>
             <LinksM><NavLink activeclassname="activeme"  className="links" to="/service"> <i className="fa-sharp fa-solid fa-user"></i> About </NavLink></LinksM>
-            <LinksM><NavLink activeclassname="activeme"  className="links"  to="/portfolio"> <i className="fa-solid fa-file-lines"></i> Resume</NavLink></LinksM>
+            <LinksM><NavLink activeclassname="activeme"  className="links"  to="/resume"> <i className="fa-solid fa-file-lines"></i> Resume</NavLink></LinksM>
             <LinksM><NavLink activeclassname="activeme"  className="links" to="/works"> <i className="fa-solid fa-briefcase"></i> Works</NavLink></LinksM>
             <LinksM><NavLink activeclassname="activeme"  className="links" to="/blog"> <i className="fa-brands fa-blogger"></i> Blog</NavLink></LinksM>
             <LinksM><NavLink activeclassname="activeme"  className="links"  to="/contact"> <i className="fa-solid fa-address-book"></i> Contact</NavLink></LinksM>
