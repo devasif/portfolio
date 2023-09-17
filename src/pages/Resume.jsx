@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import bg1 from "../images/bg.jpg"
 import bg2 from "../images/bgDark.jpg"
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react'
 
 
 
@@ -63,10 +65,14 @@ export const Resume = ({darkMode, SetDarkMode}) => {
     const [bg, setBg] = useState('');
     console.log(bg)
 
-    const handleChange = (e)=>{
-        const {value} = e.target;
-        setBg(value)
-    }
+    // const handleChange = (e)=>{
+    //     const {value} = e.target;
+    //     setBg(value)
+    // };
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, [])
 
   return (
     <div className='container'>
@@ -96,7 +102,7 @@ export const Resume = ({darkMode, SetDarkMode}) => {
     {/* What i Do */}
     <div className="what-i-do">
         <div className="row py-3">
-            <div className="col-xl-4 col-md-6 mb-3">
+            <div className="col-xl-4 col-md-6 mb-3" data-aos="flip-left">
                 <div className="resume">
                    <span><i class="fa-solid fa-graduation-cap"></i></span> <SubHeading3>Education</SubHeading3>
                 </div>
@@ -116,7 +122,7 @@ export const Resume = ({darkMode, SetDarkMode}) => {
                </div>
             </div>
 
-            <div className="col-xl-4 col-md-6 mb-3">
+            <div className="col-xl-4 col-md-6 mb-3 " data-aos="flip-up" >
                 <div className="resume">
                    <span><i class="fa-solid fa-toolbox"></i></span> <SubHeading3>Experience</SubHeading3>
                 </div>
@@ -134,7 +140,7 @@ export const Resume = ({darkMode, SetDarkMode}) => {
                 </div>
                </div>
             </div>
-            <div className="col-xl-4 col-md-6 mb-3">
+            <div className="col-xl-4 col-md-6 mb-3" data-aos="flip-right">
                 <div className="resume">
                    <span><i class="fa-solid fa-award"></i></span> <SubHeading3>Awards</SubHeading3>
                 </div>

@@ -5,7 +5,9 @@ import styled, { ThemeContext } from 'styled-components'
 import bg1 from "../images/bg.jpg"
 import bg2 from "../images/bgDark.jpg"
 import seoIcon from "../images/seo.png"
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react'
 
 const Heading = styled.h1 `
 color:${({theme})=>theme.textMe};
@@ -60,7 +62,10 @@ color: #e93b81;
 
 export const About = ({darkMode,setDarkMode}) => {
     const backgroundImage = darkMode ? bg2 : bg1;
-
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, [])
   
   return (
     <>
@@ -97,10 +102,10 @@ export const About = ({darkMode,setDarkMode}) => {
             <div className="about-data">
                 <div className="about-details">
                     <SubHeading> Who am i? </SubHeading>
-                    <p> I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs. <br /> 
+                    <p> HI! It's Me Asif.  I'm a professional Font End web And mobile app Developer And Wordpress Expert. I have 4 Years of Experience this field    <br /> 
                     <br />
 
-My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies. </p>
+I'm a Work worker , responsible and positive person. I love my work </p>
                 </div>
                 {/* personal */}
                 <div className="personal-info">
@@ -135,7 +140,7 @@ My aim is to bring across your message and identity in the most creative way. I 
                         </div>
                         <div className="info-data">
                             <p>Email</p>
-                            <Info>info@developerasif.me</Info>
+                            <Info>info@asifmia.com</Info>
                         </div>
                     </div>
                     </div>
@@ -163,7 +168,7 @@ My aim is to bring across your message and identity in the most creative way. I 
     <div className="what-i-do">
     <SubHeading> What I do! </SubHeading>
         <div className="row py-3">
-            <div className="col-xl-4 col-md-6 mb-3">
+            <div className="col-xl-4 col-md-6 mb-3"  data-aos="flip-right">
                 <div className={darkMode ? "active-class d-flex" : " d-flex what-work"}>
                     <div className="work-icon">
                         <span><i className="fa-brands fa-wordpress"></i></span>
@@ -177,7 +182,7 @@ I can Design/develop any website using Wordpress And Elementor Page Builder
                 </div>
             </div>
 
-            <div className="col-xl-4 col-md-6 mb-3">
+            <div className="col-xl-4 col-md-6 mb-3"  data-aos="flip-left">
                 <div className={darkMode ? "active-class d-flex" : " d-flex what-work"}>
                     <div className="work-icon">
                         <span><i className="fa-brands fa-react"></i></span>
@@ -190,7 +195,7 @@ I can create/develop any website using React.Js for frontend. I’m providing my
                     </div>
                 </div>
             </div>
-            <div className="col-xl-4 col-md-6 mb-3">
+            <div className="col-xl-4 col-md-6 mb-3"  data-aos="flip-down">
                 <div className={darkMode ? "active-class d-flex" : " d-flex what-work"}>
                     <div className="work-icon">
                         <span><i className="fa-brands fa-node"></i></span>
@@ -205,7 +210,7 @@ I can create/develop any website using React.Js for frontend. I’m providing my
                 </div>
             </div>
 
-      <div className="col-xl-4 col-md-6 mb-3">
+      <div className="col-xl-4 col-md-6 mb-3 "  data-aos="flip-right">
                 <div className={darkMode ? "active-class d-flex" : " d-flex what-work"}>
                     <div className="work-icon img-w">
                         <img src={seoIcon} alt="img" />
@@ -219,7 +224,7 @@ I can create/develop any website using React.Js for frontend. I’m providing my
                     </div>
                 </div>
             </div>
-            <div className="col-xl-4 col-md-6 mb-3">
+            <div className="col-xl-4 col-md-6 mb-3"  data-aos="slide-up">
                 <div className={darkMode ? "active-class d-flex" : " d-flex what-work"}>
                     <div className="work-icon">
                         <span><i className="fa-brands fa-android"></i></span>
@@ -233,7 +238,7 @@ I can create/develop any website using React.Js for frontend. I’m providing my
                     </div>
                 </div>
             </div>
-            <div className="col-xl-4 col-md-6 mb-3">
+            <div className="col-xl-4 col-md-6 mb-3"  data-aos="slide-right">
                 <div className={darkMode ? "active-class d-flex" : " d-flex what-work"}>
                     <div className="work-icon">
                         <span><i className="fa-solid fa-code"></i></span>

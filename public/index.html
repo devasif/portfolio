@@ -42,7 +42,15 @@
     -->
 
 
+<!-- Isotope -->
+
+<script src="plugin/jquery-3.6.3.min.js"></script>
+<script src="plugin/isotope.pkgd.min.js"></script>
+
+
+
     <script>
+      
       if('serviceWorker' in navigator){
         window.addEventListener('load', ()=>{
           navigator.serviceWorker.register('./serviceWorker.js').then((reg)=>{
@@ -52,6 +60,16 @@
           })
         })
       }
+// init Isotope
+var $grid = $('.item-data').isotope({
+  // options
+});
+// filter items on button click
+$('.item-menu').on( 'click', 'li', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});
+     
     </script>
   </body>
 </html>

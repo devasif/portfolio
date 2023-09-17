@@ -48,7 +48,7 @@ margin-bottom:24px;
 font-weight:600;
 font-family: 'Open Sans', sans-serif;
 `
-const ContactSection = styled.div `
+const WorkSection = styled.div `
 background:${({theme})=>theme.bgLighter};
 color:${({theme})=>theme.text};
 border-radius:25px;
@@ -57,7 +57,7 @@ padding-bottom: 45px;
 `
 
 
-export const Contact = ({darkMode, SetDarkMode}) => {
+export const Work = ({darkMode, SetDarkMode}) => {
 
     const backgroundImage = darkMode ? bg2 : bg1;
 
@@ -89,18 +89,18 @@ export const Contact = ({darkMode, SetDarkMode}) => {
     }}>
       
     
-        <ContactSection className="col px-5 ">
+        <WorkSection className="col px-5 ">
         <div className="about-me py-5">
         <div className="about-title">
         {/* resume page title  */}
-            <Heading className='heading'>Contact  </Heading>
+            <Heading className='heading-work-page'>Work </Heading>
         </div>
     
  
 
   
     </div>
-        </ContactSection>
+        </WorkSection>
          {/* copyright */}
          <div className="row">
             <div className="col copyright text-center pt-4">

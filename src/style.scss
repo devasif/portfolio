@@ -485,11 +485,53 @@ nav{
   position: absolute;
   top: 24px;
   left: 198px;
-  width: 169px;
-  height: 2px;
+  width: 129px;
+  height: 4px;
   background: #e6326b;
   border-radius: 4px;
 }
+.heading-work-page::after{
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 108px;
+  width: 129px;
+  height: 4px;
+  background: #e6326b;
+  border-radius: 4px;
+}
+.heading-blog::after{
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 108px;
+  width: 129px;
+  height: 4px;
+  background: #e6326b;
+  border-radius: 4px;
+}
+.heading-login::after{
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 108px;
+  width: 129px;
+  height: 4px;
+  background: #e6326b;
+  border-radius: 4px;
+}
+.heading-register::after{
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 158px;
+  width: 129px;
+  height: 4px;
+  background: #e6326b;
+  border-radius: 4px;
+}
+
+
 .about-details p {
 	font-size: 17px;
 	font-weight: 400;
@@ -695,6 +737,11 @@ nav{
 	height: 40px;
 	line-height: 32px;
 }
+// works pages style
+
+
+
+
 
 
 /* Large devices (laptops/desktops, 992px and up) */

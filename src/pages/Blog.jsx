@@ -2,33 +2,11 @@ import styled from 'styled-components';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Loading } from '../components/Loading/Loading';
-
-const posts = [
-  {
-    id:1,
-    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    desk:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem soluta quaerat mollitia aperiam consequuntur. Reprehenderit, qui voluptatum neque provident nemo ullam, quam odit officiis accusantium, dolorem facere. In consequuntur dolore et a molestiae animi, facilis deserunt. Facere, sit libero.",
-    img:"https://media.sproutsocial.com/uploads/2017/01/Instagram-Post-Ideas.png"
-  },
-  {
-    id:2,
-    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    desk:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem soluta quaerat mollitia aperiam consequuntur. Reprehenderit, qui voluptatum neque provident nemo ullam, quam odit officiis accusantium, dolorem facere. In consequuntur dolore et a molestiae animi, facilis deserunt. Facere, sit libero.",
-    img:"https://play-lh.googleusercontent.com/FCzgw2YD80puDhwEAOsjYCZcbetxOu5CRx7VzEVJ0z1C_FjyHqOefGqkrijyLD_cHbx1"
-  },
-  {
-    id:3,
-    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    desk:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem soluta quaerat mollitia aperiam consequuntur. Reprehenderit, qui voluptatum neque provident nemo ullam, quam odit officiis accusantium, dolorem facere. In consequuntur dolore et a molestiae animi, facilis deserunt. Facere, sit libero.",
-    img:"https://blog.sellfy.com/wp-content/uploads/2019/09/instagram-post-ideas-1200x600.png"
-  },
-  {
-    id:4,
-    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    desk:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem soluta quaerat mollitia aperiam consequuntur. Reprehenderit, qui voluptatum neque provident nemo ullam, quam odit officiis accusantium, dolorem facere. In consequuntur dolore et a molestiae animi, facilis deserunt. Facere, sit libero.",
-    img:"https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg"
-  },
-]
+import axios from 'axios';
+import bg1 from "../images/bg.jpg"
+import bg2 from "../images/bgDark.jpg"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const BlogPostSection = styled.div `
@@ -39,6 +17,13 @@ color:${({theme})=>theme.text};
 const PostStyle = styled.div `
 background-color:${({theme})=>theme.bgLighters};
 color:${({theme})=>theme.text};
+
+`
+
+const Heading = styled.h1 `
+color:${({theme})=>theme.textMe};
+position: relative;
+font-size: 40px;
 
 `
 
@@ -53,17 +38,83 @@ background:${({theme})=>theme.bgSpecial};
 color:${({theme})=>theme.my};
 
 `
-export const Blog = () => {
-  const [loading,setLoading] = useState(false);
+const BlogSection = styled.div `
+background:${({theme})=>theme.bgLighter};
+color:${({theme})=>theme.text};
+border-radius:25px;
+padding-bottom: 45px;
 
+`
+
+export const Blog = ({darkMode, SetDarkMode}) => {
+  const [loading,setLoading] = useState(false);
+  const backgroundImage = darkMode ? bg2 : bg1;
+  console.log(backgroundImage)
+
+
+  const [posts,setPosts] = useState([]);
+
+  useEffect(()=>{
+   
+    const FetchPost = async()=>{
+      const res =  await axios.get(`http://localhost:5000/api/posts`);
+      setPosts(res.data)
+    }
+    
+  FetchPost();
+  
+
+  },[])
+
+  
   useEffect(()=>{
       setLoading(true)
       setTimeout(()=>{
           setLoading(false)
       },3000)
   },[]);
-  return (
-    <BlogPostSection className='blog_post'>
+
+
+  const [bg, setBg] = useState('');
+  console.log(bg)
+
+  // const handleChange = (e)=>{
+  //     const {value} = e.target;
+  //     setBg(value)
+  // };
+  useEffect(() => {
+      AOS.init();
+      AOS.refresh();
+    }, [])
+
+return (
+  <div className='container'>
+  <div className="row">
+    <div className="about_bg m-v" style={{ 
+    backgroundImage:  `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment:'fixed',
+      backgroundPosition: 'center',
+      width: '100%',
+     
+      
+      
+  }}>
+    
+  
+      <BlogSection className="col px-5 ">
+      <div className="about-me py-5">
+      <div className="about-title">
+      {/* resume page title  */}
+          <Heading className='heading-blog'>Blog  </Heading>
+      </div>
+  
+
+
+
+  </div>
+  <BlogPostSection className='blog_post'>
 
     <div className="container">
       <div className="row">
@@ -75,12 +126,12 @@ export const Blog = () => {
         <PostStyle className="posts">
         <div className="post-area">
           {posts.map((post)=> 
-          <PostBox className="post" key={post.id}>
+          <PostBox className="post" key={post._id}>
             <div className="img">
               <img src={post.img} alt="img" />
             </div>
             <div className="content">
-              <Link className='link' to={`/post/${post.id}`}>
+              <Link className='link' to={`/post/${post._id}`}>
               <h2>{post.title}</h2>
     
               </Link>
@@ -100,5 +151,18 @@ export const Blog = () => {
     </div>
 
     </BlogPostSection>
-  )
+      </BlogSection>
+       {/* copyright */}
+       <div className="row">
+          <div className="col copyright text-center pt-4">
+              <p>
+
+© 2023 All Rights Reserved by <Link to="/">Developer Asif</Link>
+</p>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+)
 }

@@ -23,6 +23,7 @@ import { Single } from "./pages/SinglePost";
 import { Write } from "./pages/Write";
 import { About } from "./pages/About";
 import { Resume } from "./pages/Resume";
+import { Work } from "./pages/Work";
 
 
 
@@ -93,15 +94,16 @@ function App() {
     <Routes>
       <Route path="/" index element={<Home   darkMode={darkMode} setDarkMode={setDarkMode}/>}>
         </Route>
-      <Route path="/blog" element={<Blog/>}> </Route>
-      <Route path="/contact" element={<Contact/>}> </Route>
-      <Route path="/login" element={<Login/>}> </Route>
-      <Route path="/Register" element={<Register/>}> </Route>
-      <Route path="/write" element={<Write/>}> </Route>
+      <Route path="/blog" element={<Blog darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
+      <Route path="/contact" element={<Contact darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
+      <Route path="/login" element={<Login darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
+      <Route path="/Register"  element={<Register darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
+      <Route path="/write" element={<Write darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
       <Route path="/about" element={<About  darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
       <Route path="/resume" element={<Resume  darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
-      <Route path="/post/:id" element={<SinglePost/>}> </Route>
-      <Route path="*" element={<NotfoundPage/>}> </Route>
+      <Route path="/works" element={<Work  darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
+      <Route path="/post/:id" element={<SinglePost darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
+      <Route path="*" element={<NotfoundPage darkMode={darkMode} setDarkMode={setDarkMode}/>}> </Route>
     </Routes>
     <Footer></Footer>
     </ThemeProvider>

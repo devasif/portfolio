@@ -5,8 +5,7 @@ import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
 import styled from 'styled-components';
 import logo from "../images/developerasif.png"
 import mobileLogo from "../images/mobileLogo.png"
-
-
+import "./Header.css"
 
 const HeaderArea = styled.div    `
 // padding: 10px 0;
@@ -94,6 +93,7 @@ const MobileMenu = styled.div `
 	width: 100%;
 	padding: 0;
   background:${({theme})=>theme.mMenu};
+  overflow: hidden;
 
 `
 export const Header = ({darkMode,setDarkMode}) => {
@@ -164,7 +164,7 @@ export const Header = ({darkMode,setDarkMode}) => {
                 <MobileMenu className="m-menu">
                 <ul>
                 <LinksM><NavLink exact="true" activeclassname="activeme"  className="links" to="/"> <i className="fa-solid fa-house"></i> Home</NavLink></LinksM>
-            <LinksM><NavLink activeclassname="activeme"  className="links" to="/service"> <i className="fa-sharp fa-solid fa-user"></i> About </NavLink></LinksM>
+            <LinksM><NavLink activeclassname="activeme"  className="links" to="/about"> <i className="fa-sharp fa-solid fa-user"></i> About </NavLink></LinksM>
             <LinksM><NavLink activeclassname="activeme"  className="links"  to="/resume"> <i className="fa-solid fa-file-lines"></i> Resume</NavLink></LinksM>
             <LinksM><NavLink activeclassname="activeme"  className="links" to="/works"> <i className="fa-solid fa-briefcase"></i> Works</NavLink></LinksM>
             <LinksM><NavLink activeclassname="activeme"  className="links" to="/blog"> <i className="fa-brands fa-blogger"></i> Blog</NavLink></LinksM>
